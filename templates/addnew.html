@@ -1,0 +1,100 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Contact Form 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'AddNewStatic/css/style.css'%}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="wrapper img" style="background-image: url(../static/AddNewStatic/images/img.jpg);">
+						<div class="row">
+							<div class="col-md-9 col-lg-7">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<h3 class="mb-4">Add Address</h3>
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Your message was sent, thank you!
+				      		</div>
+									<form method="POST" id="contactForm" name="contactForm" class="contactForm" action ="/addnew">
+										{% csrf_token %}
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="label" for="name">Sr No.</label>
+													<input type="text" class="form-control" name="srnotoadd" Required>
+												</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<label class="label" for="email">Phone</label>
+													<input class="form-control" name="phonetoadd" id="email" Required>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="subject">Name</label>
+													<input type="text" class="form-control" name="nametoadd" id="subject" Required>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="subject">Address</label>
+													<input type="text" class="form-control" name="addresstoadd" id="subject" Required>
+												</div>
+											</div>
+											{% comment %} <div class="col-md-12">
+												<div class="form-group">
+													<label class="label" for="#">Message</label>
+													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+												</div>
+											</div> {% endcomment %}
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Add Address" class="btn btn-primary">
+													<div class="submitting"></div>
+													<a href="/" style = "color: white;"><button class="btn btn-secondary" type="button" href = "/">Go Back</button></a>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% if Added %}
+					<div class="alert alert-success" role="alert">
+						Address Added Successfully
+					</div>
+					{% endif %}
+					{% if notAdded %}
+					<div class="alert alert-danger" role="alert">
+						Update Failed, Please Fill All The Details Required
+					  </div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{%static 'js/jquery.min.js'%}"></script>
+  <script src="{%static 'js/popper.js'%}"></script>
+  <script src="{%static 'js/bootstrap.min.js'%}"></script>
+  <script src="{%static 'js/jquery.validate.min.js'%}"></script>
+  <script src="{%static 'js/main.js'%}"></script>
+
+	</body>
+</html>
+
